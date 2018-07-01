@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        
+        <item name="android:textColorPrimaryInverse">@color/textColorPrimaryInverse</item>
+        <item name="android:textColorSecondaryInverse">@color/textColorSecondaryInverse</item>
+    </style>
+
+    <!-- appThem will be used for the whole application-->
+    <style name="AppTheme" parent="BaseTheme" />
+
+    <!-- Activity with no Title -->
+    <style name="ActivityNoTitle" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Activity with Title and action bar -->
+    <style name="ActivityWithTitle" parent="AppTheme">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowBackground">@color/card_light_background</item>
+    </style>
+
+    <style name="ActivityNoTitle.Button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/ic_login_button</item>
+    </style>
+
+    <style name="CardView.Light" parent="Base.CardView">
+        <item name="cardBackgroundColor">@color/card_light_background</item>
+        <item name="cardCornerRadius">12dp</item>
+    </style>
+
+</resources>

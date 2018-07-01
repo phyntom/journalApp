@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Journal App</string>
+
+    <!-- Strings related to login -->
+    <string name="welcome_text">Journal App For Your Thought</string>
+
+    <!-- Strings related to menu -->
+    <string name="action_logout_label">Logout</string>
+    <string name="action_disconnect_label">Disconnect</string>
+
+    <string name="login_label">Sign In</string>
+
+    <!-- String related to fireBase client Id -->
+    <string name="server_client_id">861010061807-8phrrbldb6n27i2ml09h62b4ia4nheme.apps.googleusercontent.com</string>
+    <string name="client_id_suffix">.apps.googleusercontent.com</string>
+
+    <!-- String related to cardView -->
+    <string name="action_edit">EDIT</string>
+    <string name="action_save">SAVE</string>
+    <string name="action_delete">DELETE</string>
+    <string name="primary">Title goes here</string>
+    <string name="primary_short">Title here</string>
+    <string name="subtext">Subtitle here</string>
+</resources>
