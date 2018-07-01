@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity  {
         validateClientId();
 
         googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.server_client_id))
+                //.requestIdToken(getString(R.string.server_client_id))
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
