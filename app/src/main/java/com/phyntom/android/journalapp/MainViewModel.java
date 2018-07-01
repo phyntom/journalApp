@@ -63,4 +63,21 @@ public class MainViewModel extends AndroidViewModel {
         }.execute(diaryEntry);
     }
 
+
+    /**
+     * method to insert diaryEntry
+     *
+     * @param diaryEntry
+     */
+    public void updateEntry(DiaryEntry diaryEntry) {
+        new AsyncTask<DiaryEntry, Void, Void>() {
+            @Override
+            protected Void doInBackground(DiaryEntry... params) {
+                DiaryEntry entry = params[0];
+                appDatabase.diaryEntryDao().update(entry);
+                return null;
+            }
+        }.execute(diaryEntry);
+    }
+
 }

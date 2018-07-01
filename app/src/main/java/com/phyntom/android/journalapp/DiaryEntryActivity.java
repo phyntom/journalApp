@@ -27,7 +27,9 @@ public class DiaryEntryActivity extends AppCompatActivity {
 
     private AppDatabase appDatabase;
 
-    private String buttonText="SAVE";
+    private String buttonText = "SAVE";
+
+    private DiaryEntry sentDiaryEntry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +37,15 @@ public class DiaryEntryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_diary_entry);
         textViewTime = (TextView) findViewById(R.id.tv_time);
         editTextEntryDesc = (EditText) findViewById(R.id.et_entry_desc);
-
+        buttonAction = (Button) findViewById(R.id.bt_edit_save);
         Intent diaryEntryIntent = getIntent();
         if (diaryEntryIntent.hasExtra("entry_data")) {
-            DiaryEntry sentEntry = (DiaryEntry) diaryEntryIntent.getSerializableExtra("entry_data");
-            textViewTime.setText(sentEntry.getEntryTime());
-            editTextEntryDesc.setText(sentEntry.getContent());
+            sentDiaryEntry = (DiaryEntry) diaryEntryIntent.getSerializableExtra("entry_data");
+            textViewTime.setText(sentDiaryEntry.getEntryTime());
+            editTextEntryDesc.setText(sentDiaryEntry.getContent());
+            buttonText = "EDIT";
+            buttonAction.setText(buttonText);
+
         } else {
             textViewTime.setText(LocalTime.now().toString());
         }
@@ -58,13 +63,23 @@ public class DiaryEntryActivity extends AppCompatActivity {
             finish();
         } else {
             try {
-                LocalDate currentDate = LocalDate.now();
-                String time = textViewTime.getText().toString();
-                String entryDesc = editTextEntryDesc.getText().toString();
-                DiaryEntry diaryEntry = new DiaryEntry(currentDate, time, entryDesc);
                 MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-                viewModel.insertEntry(diaryEntry);
+                switch (buttonText) {
+                    case "SAVE":
+                        LocalDate currentDate = LocalDate.now();
+                        String time = textViewTime.getText().toString();
+                        String entryDesc = editTextEntryDesc.getText().toString();
+                        DiaryEntry diaryEntry = new DiaryEntry(currentDate, time, entryDesc);
+                        viewModel.insertEntry(diaryEntry);
+                        break;
+                    case "EDIT":
+                        sentDiaryEntry.setContent(editTextEntryDesc.getText().toString());
+                        viewModel.updateEntry(sentDiaryEntry);
+                        break;
+
+                }
                 finish();
+
             }
             catch (Exception ex) {
                 Log.e(TAG, "Diary entry not save " + ex);
