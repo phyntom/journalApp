@@ -28,5 +28,7 @@
     <color name="colorButtonDelete">#bf360c</color>
     <color name="colorButtonEdit">#38006b</color>
 
+    <color name="skyBlue">#87CEEB</color>
+
 
 </resources>

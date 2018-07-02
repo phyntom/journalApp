@@ -9,9 +9,16 @@
 
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
-        
+
         <item name="android:textColorPrimaryInverse">@color/textColorPrimaryInverse</item>
         <item name="android:textColorSecondaryInverse">@color/textColorSecondaryInverse</item>
+
+        <!-- To change the popup menu and app text color  -->
+        <item name="android:textColor">@color/colorPrimary</item>
+
+        <!-- To change the background of options menu-->
+        <!--<item name="android:itemBackground">@color/skyBlue</item>-->
+
     </style>
 
     <!-- appThem will be used for the whole application-->
@@ -29,6 +36,7 @@
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">false</item>
         <item name="android:windowBackground">@color/card_light_background</item>
+        <item name="android:actionMenuTextColor">@color/colorSecondaryTextDefaultMaterialLight</item>
     </style>
 
     <style name="ActivityNoTitle.Button" parent="Widget.AppCompat.Button">

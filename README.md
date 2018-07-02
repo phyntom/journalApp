@@ -25,7 +25,7 @@ Its main functionalities is to allow users to pen down their thoughts and feelin
   - Room
 	- LiveData
 	- ViewModel
-- Intents
-- Google Sign In Feature
+	- Intents
+	- Google Sign In Feature
 
 

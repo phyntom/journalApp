@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -17,8 +16,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
 
-
-public class LoginActivity extends AppCompatActivity  {
+public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_GET_TOKEN = 9002;
 
@@ -40,13 +38,13 @@ public class LoginActivity extends AppCompatActivity  {
 
         googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 //.requestIdToken(getString(R.string.server_client_id))
-                .requestEmail()
-                .build();
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+                .requestEmail().build();
+        googleSignInClient = ((LoginApplication)getApplication()).getGoogleSignInClient(this);
 
-        account=GoogleSignIn.getLastSignedInAccount(this);
+        account = GoogleSignIn.getLastSignedInAccount(this);
 
         updateUI(account);
+
 
     }
 
@@ -113,17 +111,15 @@ public class LoginActivity extends AppCompatActivity  {
     }
 
     /**
-     *
      * @param account
      */
-    public void updateUI(@NonNull GoogleSignInAccount account){
-        if(account != null){
-            Intent mainActivityIntent=new Intent(LoginActivity.this,MainActivity.class);
-            mainActivityIntent.putExtra("account",account);
+    public void updateUI(@NonNull GoogleSignInAccount account) {
+        if (account != null) {
+            Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
+            mainActivityIntent.putExtra("account", account);
             startActivity(mainActivityIntent);
-        }
-        else{
-         // redesign the main screen
+        } else {
+            // redesign the main screen
         }
     }
 }
