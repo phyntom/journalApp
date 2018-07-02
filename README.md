@@ -27,5 +27,6 @@ Its main functionalities is to allow users to pen down their thoughts and feelin
 	- ViewModel
 	- Intents
 	- Google Sign In Feature
+- Responsive Layout
 
 
