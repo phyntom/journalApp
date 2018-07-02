@@ -29,4 +29,11 @@ Its main functionalities is to allow users to pen down their thoughts and feelin
 	- Google Sign In Feature
 - Responsive Layout
 
+# Apk Location
+If you want to install the apk file. You can find the generated signed APK file in this location
+```
+app/release/app-release.apk
+
+```
+
 
